@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFMGWALK - O Campus Virtual</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+</head>
+<body>
+    <div id="ui-layer">
+        <header class="game-header">
+            <h1>UFMGWALK</h1>
+            <p>Mundo Aberto - Bate-papo</p>
+        </header>
+        
+        <div id="game-container"></div>
+        
+        <div id="chat-container">
+            <div id="chat-log"></div>
+            <form id="chat-form">
+                <input type="text" id="chat-input" placeholder="Diga algo pelo campus..." autocomplete="off">
+                <button type="submit">Falar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script principal do jogo -->
+    <script src="game.js"></script>
+</body>
+</html>

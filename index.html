@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minas Mundi - Simulador Estratégico</title>
+    <!-- Modern Typeface -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-container">
+        <!-- HEADER PÁGINA -->
+        <header>
+            <h1>Minas Mundi UFMG</h1>
+            <p>Simulador de Probabilidade Estratégico</p>
+            
+            <!-- TABS DE NAVEGAÇÃO -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="simulador">Simulador</button>
+                <button class="tab-btn" data-tab="faq">O que é a Sobra Média?</button>
+                <button class="tab-btn" data-tab="melhorar">Como Aumentar as Chances?</button>
+                <button class="tab-btn" data-tab="database">Atualizar Banco (Edital Novo)</button>
+            </div>
+        </header>
+
+        <main class="dashboard tab-content active" id="simulador">
+            <!-- PAINEL DE ENTRADA -->
+            <section class="input-panel">
+                <h2>Seu Perfil</h2>
+                <form id="perfil-form">
+                    <div class="input-group">
+                        <label for="nome">Nome do Candidato</label>
+                        <input type="text" id="nome" value="Candidato Civil - UFMG">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="nsg">NSG (0 a 100)</label>
+                            <input type="number" id="nsg" step="1" min="0" max="100" value="82">
+                        </div>
+                        <div class="input-group">
+                            <label for="integralizacao">Integralização (%)</label>
+                            <input type="number" id="integralizacao" step="1" min="0" max="100" value="82">
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <!-- IDIOMAS -->
+                        <div class="card-section">
+                            <h3>Idiomas</h3>
+                            <div class="input-group">
+                                <label for="Inglês">Inglês</label>
+                                <select id="Inglês">
+                                    <option value="N/A">N/A</option>
+                                    <option value="A1">A1</option><option value="A2">A2</option>
+                                    <option value="B1">B1</option><option value="B2" selected>B2</option>
+                                    <option value="C1">C1</option><option value="C2">C2</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="Espanhol">Espanhol</label>
+                                <select id="Espanhol">
+                                    <option value="N/A">N/A</option>
+                                    <option value="A1">A1</option><option value="A2">A2</option>
+                                    <option value="B1" selected>B1</option><option value="B2">B2</option>
+                                    <option value="C1">C1</option><option value="C2">C2</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="Francês">Francês</label>
+                                <select id="Francês">
+                                    <option value="N/A" selected>N/A</option>
+                                    <option value="A1">A1</option><option value="A2">A2</option>
+                                    <option value="B1">B1</option><option value="B2">B2</option>
+                                    <option value="C1">C1</option><option value="C2">C2</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="Alemão">Alemão</label>
+                                <select id="Alemão">
+                                    <option value="N/A" selected>N/A</option>
+                                    <option value="A1">A1</option><option value="A2">A2</option>
+                                    <option value="B1">B1</option><option value="B2">B2</option>
+                                    <option value="C1">C1</option><option value="C2">C2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- CURRÍCULO -->
+                        <div class="card-section">
+                            <h3>Experiência Acadêmica (Meses)</h3>
+                            <div class="input-group">
+                                <label for="ic">Iniciação Científica</label>
+                                <input type="number" id="ic" min="0" value="12">
+                            </div>
+                            <div class="input-group">
+                                <label for="extensao">Extensão</label>
+                                <input type="number" id="extensao" min="0" value="8">
+                            </div>
+                            <div class="input-group">
+                                <label for="monitoria">Monitoria</label>
+                                <input type="number" id="monitoria" min="0" value="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="estagio">Estágio Profissional</label>
+                                <input type="number" id="estagio" min="0" value="18">
+                            </div>
+                            <div class="input-group" style="padding-top: 15px; border-top: 1px solid var(--glass-border);">
+                                <label for="publicacoes">Publicações/Resumos (Qtd)</label>
+                                <input type="number" id="publicacoes" min="0" value="2">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- PAINEL DE RESULTADOS (Dashboard) -->
+            <section class="results-panel">
+                <div class="top-match" id="top-match-container">
+                    <h2>Melhor Aposta Estratégica</h2>
+                    <div id="top-match-content">
+                        <!-- Injetado pelo script.js -->
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Probabilidade por Instituição</h3>
+                    <div id="bars-container" class="bars">
+                        <!-- Injetado pelo script.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ABA: O QUE É A SOBRA MÉDIA -->
+        <main class="faq-content tab-content" id="faq">
+            <h2>Otimizando as suas escolhas na DRI</h2>
+            <p>O Programa Minas Mundi usa um algoritmo de seleção focado primariamente em critérios acadêmicos (NSG e Currículo) para ranquear os candidatos. No entanto, quando você vai realizar suas inscrições, você precisa colocar as opções de universidade em <strong>ordem de prioridade</strong>. Se você colocar universidades muito concorridas nelas, a chance de ser eliminado nas primeiras chamadas se torna enorme.</p>
+            
+            <p>O conceito de <strong>"Sobra Média"</strong> baseia-se nos dados históricos de editais passados. Muitas vezes as vagas mais populares (Ex: grandes faculdades na Espanha e Portugal) esgotam e cortam candidatos com NSG 90+ logo no primeiro instante da 1ª Chamada. Ou seja, sua Sobra Média gira em torno de 1.0 (Esgotou instantaneamente).</p>
+            
+            <p>Por outro lado, existem lugares extraordinários na Alemanha ou Itália que, por causa do forte requisito em ter uma língua (Alemão ou Italiano) como "C1", afasta muita gente temporariamente. Com isso, ninguém aprova naquelas vagas nas primeiras chamadas. Essas vagas costumam rodar a lista de espera e "sobrar" na mesa até a 5ª, 6ª ou mesmo 7ª chamada do edital.</p>
+            
+            <div style="background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent); padding: 1.5rem; border-radius: 4px; margin-top: 1rem;">
+                <strong style="color: white;">Resumo Estratégico:</strong><br><br>
+                O nosso algoritmo favorece as vagas com "Sobra Média elevada". Quanto mais uma vaga tende a sobrar em chamadas finais no histórico, mais fácil será a sua aprovação, e maior será a probabilidade que vamos prever. Ter o idioma alvo dessa vaga esquecida é o maior "hack" dentro do processo seletivo do Minas Mundi para não depender apenas de um NSG na estratosfera.
+            </div>
+
+            <h3 style="margin-top: 2rem; color: var(--text-primary); font-size: 1.3rem;">Quais são nossos Dados Base e Referências?</h3>
+            <p>Para construir a precisão e a confiabilidade das regras deste Simulador de Probabilidade, baseamos nosso cálculo em 3 pilares documentais e dados oficiais da UFMG:</p>
+            <ul style="padding-left: 1.5rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.8rem; font-size: 1.05rem;">
+                <li><strong>O Edital Unificado do Programa Minas Mundi (DRI/UFMG):</strong> Utilizamos a metodologia descrita no edital da Diretoria de Relações Internacionais para pontuar o currículo. As regras refletem fielmente a conversão de tempo (peso de ~3 pontos para cada 4 meses de atividades extracurriculares completas) e bônus aplicados a publicações.</li>
+                <li><strong>O Quadro Oficial de Chamadas do Histórico (Mineração DRI):</strong> O comportamento do algoritmo de encontrar "Sobra Média" baseia-se nas tabelas passadas de chamadas excedentes do programa. Ex: Vagas na Poli de Madrid esgotam extremamente rápido (baixo índice de sobra), enquanto vagas que exigem fluência em Italiano ou Alemão chegam até a 6ª e 7ª oportunidade de preenchimento.</li>
+                <li><strong>Regras de Corte do CEPE / Resolução de Intercâmbio:</strong> As restrições e penalidades para alunos em fase de formatura. O algoritmo pune a pontuação para cenários de estudantes com grau de integralização muito perto do limite global de 90%, e os bloqueios severos na nota (Score Drop) caso o aluno não tenha apresentado exames oficiais de proficiência mínima exigida pelo convênio bilateral.</li>
+            </ul>
+        </main>
+
+        <!-- ABA: COMO MELHORAR REGRAS -->
+        <main class="faq-content tab-content" id="melhorar">
+            <h2>Análise Personalizada do seu Perfil</h2>
+            <p>Com base nos dados exatos que você inseriu no Simulador agora mesmo, nossa inteligência analisou os gargalos numéricos do seu currículo e gerou recomendações específicas (baseadas em matemática) para dar "Aceleração" nas suas aprovações do Minas Mundi:</p>
+            
+            <div id="dynamic-tips-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                <!-- Dicas serão injetadas por script.js baseadas no input atual -->
+            </div>
+        </main>
+
+        <!-- ABA: IMPORTADOR DE DADOS -->
+        <main class="faq-content tab-content" id="database">
+            <h2>Importador Inteligente do Edital 2026/Futuro</h2>
+            <p>Este sistema previne que sua probabilidade fique obsoleta! Quando a DRI publicar o novo quadro de vagas (normalmente num PDF enorme), você só precisará pedir a qualquer IA para converter as páginas num formato "Excel". Em seguida, copie as células dessa planilha e cole no quadro negro abaixo. O algoritmo usará essa nova base imediatamente.</p>
+            
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <h3 style="color: white; margin-bottom: 0.8rem;">Formato Esperado (Da esquerda para direita na Planilha):</h3>
+                <span style="color: var(--color-high); font-family: monospace; font-size: 0.95rem;">Nome da Universidade&nbsp;&nbsp;&nbsp;País&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nível (Ex: B2)&nbsp;&nbsp;Idioma&nbsp;&nbsp;&nbsp;&nbsp;Sobra Histórica (Num)</span>
+                <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem;">Exemplo: Universidade do Texas &nbsp;&#9; Estados Unidos &nbsp;&#9; B2 &nbsp;&#9; Inglês &nbsp;&#9; 1.5</p>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+                <!-- Quadro Negro -->
+                <textarea id="data-import" style="width: 100%; height: 250px; border-radius: 8px; padding: 1.2rem; font-family: monospace; font-size: 0.95rem; background: rgba(5, 10, 20, 0.9); color: #3b82f6; border: 1px solid var(--glass-border); resize: vertical; box-shadow: inset 0 5px 15px rgba(0,0,0,0.5);" placeholder="[PASSO A PASSO DA ATUALIZAÇÃO]&#10;1. Selecione os dados lá no seu arquivo do Microsoft Excel/Google Sheets.&#10;2. Dê Ctrl+C.&#10;3. Clique neste quadrado escuro e dê Ctrl+V.&#10;4. Pressione o botão verde de injeção abaixo..."></textarea>
+                
+                <button type="button" id="btn-importar" class="primary-btn" style="width: auto; padding: 0.9rem 2rem; margin-top: 1rem;">📡 Injetar Tabela e Rodar Cálculos</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script de Processamento e Animações -->
+    <script src="script.js"></script>
+</body>
+</html>
